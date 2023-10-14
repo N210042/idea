@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Share Idea</title>
+        <link rel = "stylesheet" href = "/home/hemanth-kumar-yasarapu/Documents/idea/index.css"/>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <style>
+            *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      html{
+          scroll-behavior: smooth;
+      }
+      body{
+          font-family: sans-serif;
+      }
+      body .container{
+          height: 650px;;
+          width: 100%;
+          background: url('/home/hemanth-kumar-yasarapu/Documents/idea/blue-abstract-business-background-template-1612006256659-cover.jpg');
+          background-repeat: no-repeat;
+          background-size: cover;
+      }
+      body .container .nav{
+          position: fixed;
+          width: 100%;
+          height: 60px;
+          padding: 0px 50px;
+          top: 0;
+          left: 0;
+          background: white;  
+          display: flex;
+          justify-content: space-between;
+          align-items:  center;
+          z-index: 10;
+          box-shadow: 0 2px 10px 0 rgba(0,0,0,.3);
+      }
+      body .container .nav .head{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      #high{
+          font-size: 35px;
+      }
+      body .container .nav .head h2{
+          letter-spacing: 1.5px;
+            color: #003546;
+      }
+      body .container .nav ul{
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          
+      }
+      body .container .nav ul .search{
+          margin-right: 60px;
+      }
+      body .container .nav ul .search input{
+          padding: 7px 13px;
+          margin: 0;
+          outline: none;
+          border: 1px solid black;
+          letter-spacing: 1.1px;
+          font-size: 17px;
+      }
+      body .container .nav ul .search button{
+          background: #003546;
+          padding: 7px 10px;;
+          color: whitesmoke;
+          font-size: 15px;
+      }
+      body .container .nav ul li{
+          list-style: none;
+          margin: 0px 3px;
+      }
+      body .container .nav ul li a{
+          text-decoration: none;
+          padding: 7px 2px;
+          color: black;
+          margin: 0px 5px;
+          letter-spacing: 1.1px;
+          font-size: 17px;
+          font-weight: bold;
+      }
+      body .container .nav ul li a:hover{
+          font-weight: bold;
+      }
+      body .main{
+          width: 100%;
+          height: calc(100vh - 80px);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      body .main .txt{
+          color: white;
+          padding: 20px;
+          letter-spacing: 1.3px;
+          font-size: 19px;
+          line-height: 50px;
+          position: relative;
+          top: 40px;
+          text-align: center;
+      }
+      body .main .txt button{
+          background: whitesmoke;
+          color: black;
+          padding: 9px 13px;
+          outline: none;
+          border: 1px solid black;
+          font-size: 16px;
+          letter-spacing: 1px;
+          animation: all 1s ease;
+          position: absolute;
+          left: 265px;
+          top: 270px;
+      }
+      body .main .txt button a{
+          color: black;
+          text-decoration: none;
+      }
+      body .main .txt button ion-icon{
+          font-weight: bold;
+          position: relative;
+          top: 4px;
+          left: 3px;
+          font-size: 20px;
+          margin: 0px 0px 0px 5px;
+      }
+      body .main .txt h1{
+          font-size: 45px;
+      }
+
+      body .post{
+          background: white;
+          width: 100%;
+          height: 100%;    
+          padding-top: 30px;
+      }
+      body .post .form{
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+      }
+      body .post .form h1{
+          color: black;
+          padding: 20px;
+          font-style: italic;
+          letter-spacing: 7px;
+          word-spacing: 7px;
+          font-family: roboto;
+          text-align: center;
+          margin: 20px 0px 20px 0px;
+          font-size: 40px;
+      }
+      body .post .form h1 i{
+          padding: 20px;
+          
+      }
+      body .post .form form{
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+      }
+      body .post .form form label{
+          border: 1px solid #003546;
+          margin: 10px 0px;
+          color: #003546;
+          padding: 10px;
+          cursor: pointer;
+          width: 90%;
+      }
+      body .post .form form ion-icon{
+          position: relative;
+          top: 3px; 
+      }
+      body .post .form form input[type = "file"]{
+          display: none;
+      }
+      body .post .form form .title{
+          width: 90%;
+          height: 50px;
+          font-weight: bold;
+          padding: 5px 0px 5px 10px;
+          font-family: sans-serif;
+          font-size: 25px;
+          letter-spacing: 1.2px;
+          border: 1px solid black;
+          outline: none;
+      }
+      body .post .form form .description{
+          width: 90%;
+          height: 300px;
+          padding: 10px 0px 10px 15px;
+          font-family: sans-serif;
+          font-size: 17px;
+          letter-spacing: 1.2px;
+          outline: none;
+          border: 1px solid #003546;
+          margin-top: 20px;
+          resize: none;
+      }
+      body .post .form form input[type = "submit"]{
+          width: 90%;
+          padding: 10px 13px;
+          background: #003546;
+          margin: 10px 0px;
+          color: white;
+          letter-spacing: 1.2px;
+          font-size: 16.8px;
+          font-weight: bold;
+      }
+      body .k{
+          letter-spacing: 3px;
+          text-align: left;
+          padding: 20px;
+          margin: 30px 0px 0px 20px;;
+          text-transform: uppercase;
+          padding: 20px;
+      }
+      body .content{
+          width: 100%;
+          height: 500px;
+          background: white;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+      }
+      body .content .left{
+          width: 75%;
+          height: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-direction: column;
+      }
+      body .content .left .search-left{
+          width: 100%;
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 20px 0px 0px 40px;  
+      }
+      body .content .left .search-left form{
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+      }
+      body .content .left .search-left form input{
+          width: 93%;
+          height: 40px;
+          padding: 10px;
+          font-size: 16px;
+          outline: none;
+          letter-spacing: 1.1px;
+          border: 1px solid black;
+      }
+      body .content .left .search-left form button{
+          width: 40px;
+          height: 40px;
+          margin-left: 5px;
+          border: 1px solid black;
+          outline: none;
+          padding: 5px;
+          color: black;
+          background: white;
+          font-size: 17px;
+          font-weight: bold;
+      }
+      body .content .left .items{
+          border: 1px solid black;
+          width: 94%;
+          margin-left: 15px;
+          height: 85%;
+          overflow-x: hidden;
+          overflow-y: auto;
+          padding: 20px;
+      }
+      body .content .left .items button{
+          font-size: 19px;
+          padding: 10px;
+          width: 100%;
+          text-align: left;
+          background: #d4d4d4;
+          border: 1px solid black;
+          margin: 7px 0px;
+      }
+      body .content .right{
+          width: 25%;
+          height: 100%;
+          background: whitesmoke;
+          padding: 20px
+      }
+      body .content .right h2{
+          letter-spacing: 2px;
+          margin-bottom: 10px;
+      }
+      body .content .right .tags{
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          flex-wrap: wrap;
+          height: 420px;
+          overflow-x: hidden;
+          overflow-y: auto;
+      }
+      body .content .right .tags a{
+          padding: 7px 13px;
+          border: 1px solid black;
+          text-decoration: none;
+          margin: 10px 10px 0px 0px;
+          color: black;
+      }
+      body .content .right .tags a:hover{
+          background: white;
+      }
+
+      body .ad{
+          width: 100%;
+          height: 650px;
+          margin-top: 30px;
+          background: url("/home/hemanth-kumar-yasarapu/Documents/idea/ad.jpg");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+      }
+      body .ad .ad-a{
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,0.6);
+      }
+      body .ad .ad-a h3{
+          color: white;
+          text-align: center;
+          padding-top: 100px;
+          font-size: 20px;
+          letter-spacing: 2px;
+      }
+      body .ad .ad-a .boxes{
+          height: 60%;
+          margin: 20px;
+          padding: 10px;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+      }
+      body .ad .ad-a .boxes .box{
+          width: 20%;
+          height: 100%;
+      }
+      body .ad .ad-a .boxes .box .image{
+          width: 100%;
+          height: 100%;
+          border-radius: 5px;
+      }
+      body .ad .ad-a .boxes .box .image img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: all 1s ease;
+          border-radius: 5px;
+      }
+      body .ad .ad-a .boxes .box .image:hover .text{
+          display: block;
+      }
+      body .ad .ad-a .boxes .box .image .text{
+          width: 100%;
+          height: 100%;
+          position: relative;
+          bottom: 377px;
+          background: rgba(0,0,0,0.75);
+          padding: 20px;
+          letter-spacing: 1.1px;
+          line-height: 22px;
+          font-size: 17px;
+          border: .2px solid white;
+          display: none;
+          border-radius: 5px;
+          overflow-y: auto;
+      }
+      body .ad .ad-a .boxes .box .image .text p{
+          color: white;
+      }
+      body .ad .ad-a .boxes .box .image .text a{
+          color: black;
+          text-decoration: none;
+          background: white;
+          padding: 7px 13px;
+          position: absolute;
+          bottom: 20px;
+          border-radius: 2px;
+      }
+
+      body .logsign{
+          width: 100%;
+          height: 100%;
+          background: white;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          padding: 20px;
+      }
+      body .logsign .login form{
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin: 40px 0px;
+          padding-top: 40px;  
+      }
+      body .logsign .login form h2{
+          margin-bottom: 20px;
+          color: #003546;
+      }
+      body .logsign .login form p{
+          margin: 10px 0px;
+          letter-spacing: 1.1px;
+      }
+      body .logsign .login form input{
+          padding: 9px 13px;
+          margin: 10PX 0PX;;
+          outline: none;
+          border: 1px solid black;
+          letter-spacing: 1.1px;
+          font-size: 16px;
+          font-weight: bold;
+          width: 120%;
+      }
+      body .logsign .login form input[type = "submit"]{
+          background: #003546;
+          color: white;
+      }
+      body .logsign .signup form{
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin: 40px 40px 40px 0px;
+          padding-top: 40px;  
+      }
+      body .logsign .signup form h2{
+          margin-bottom: 10px;
+          color: #003546;
+      }
+      body .logsign .signup form p{
+          margin: 10px 0px;
+          letter-spacing: 1.1px;
+      }
+      body .logsign .signup form input{
+          padding: 9px 13px;
+          margin: 10PX 0PX;;
+          outline: none;
+          border: 1px solid black;
+          letter-spacing: 1.1px;
+          font-size: 16px;
+          font-weight: bold;
+          width: 120%;
+      }
+      body .logsign .signup form input[type = "submit"]{
+          background: #003546;
+          color: white;
+      }
+
+      body .follow{
+          width: 100%;
+          height: 100%;
+          background: black;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: white;
+          padding: 20px;
+      }
+      body  .follow .address{
+          padding: 20px;
+          line-height: 30px;
+      }
+      body  .follow .follow-links{
+          width: 100%;
+          margin-left: 50px;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: flex-start;
+          position: relative;
+          bottom: 80px;
+          left: 30px;
+      }
+      body  .follow .follow-links .l{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 0px;
+      }
+      body  .follow .follow-links .l a{
+          color: white;
+          text-decoration: none;
+          padding: 0px 15px 0px 0px;
+          font-size: 25px;
+          transition: all .5s ease;
+      }
+      body  .follow .follow-links .l a:hover{
+          color: red;
+          text-shadow: 0 2px 10px 0 rgb(1,0,0);
+      }
+      body  .follow .follow-img img{
+          position: relative;
+          bottom: 40px;
+      }
+
+      body .copy{
+          border-top: 1px solid #003546;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 5px 20px 5px 40px;
+      }
+      body .copy h2{
+          color: #003546;
+      }
+      body .copy button{
+          padding: 7px 13px;
+          margin: 0px 5px;
+      }
+
+      .terms{
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: #e5e5e5;
+          z-index: 100;
+          display: none;;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+
+      }
+      .terms .terms-conditions{
+          width: 100%;
+          height: 50%;
+          padding: 20px 40px;
+      }
+      .terms .terms-conditions ol{
+          margin: 20px 0px 0px 20px;
+      }
+      .terms .terms-conditions ol li{
+          font-size: 20px;
+          margin: 10px 2px;
+          letter-spacing: 1.1px;
+      }
+      .terms ion-icon{
+          color: black;
+          font-weight: bold;
+          font-size: 20px;
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          padding: 5px;
+          border-radius: 50%;
+          background: whitesmoke;
+          box-shadow: 0 2px 10px 0 rgba(0,0,0,.3);
+      }
+        </style>
+    </head>
+    <body>
+        <div class = "container">
+            <div class = "nav">
+                <div class = "head">
+                    <img src = "/home/hemanth-kumar-yasarapu/Documents/idea/logo.jpg" width = "50" height = "50" style = "transform: rotate(180deg);position: relative;top: 4px;"/>
+                    <h2><i><b id = "high">S</b>hareidea</i></h2>
+                </div>
+                <ul>
+                      <div class = "search">
+                          <form>
+                              <input type = "text" placeholder = "search"/>
+                              <button type = "submit"><ion-icon name="search-outline"></ion-icon></button>
+                          </form>
+                      </div>
+                      <li><a href = "#sign">LOGIN</a></li>
+                      <li><a href = "#sign">SIGN UP</a></li>
+                </ul>
+            </div>
+            <div class = "main">
+                <div class = "txt">
+                    <h2>Let's say you are sitting alone.</h2>
+                    <h1>YOU GOT AN IDEA SUDDENLY!</h1>
+                    <h3>Not sure whom to tell? Want to share your Idea?</h3>
+                    <h4>Then what are you waiting for?</h2>
+                    <h2><i><b>S</b>hareidea</i> IS FOR YOU...</h1>
+                    <button><a href = "#upload">GET STARTED<ion-icon name="arrow-forward-outline"></ion-icon></a></button>
+                </div>
+                <!--<div class = "img"/>
+                    <img src = "/home/hemanth-kumar-yasarapu/Documents/idea/brain.jpg">
+                </div>-->
+            </div>
+        </div>
+        
+        <div class = "post" id = "upload">
+            <div class = "form">
+                <h1><i>share your ideas here</i></h1>
+                <form>  
+                    <input type = "text" placeholder = "Enter Title" class = "title"/>
+                    <textarea placeholder = "Description" class = "description"></textarea>
+                    <label for = "img"><ion-icon name="image-outline"></ion-icon> upload image</label>
+                    <input type="file" id="img" name="img" accept="image/*">
+                    <input type = "submit" value = "POST"/>
+                </form>
+            </div>
+        </div>
+        
+        <h1 class = "k">know what's going</h1>
+        <div class = "content">
+            <div class = "left">
+                <div class = "search-left">
+                    <form>
+                        <input type = "search" placeholder = "search"/>
+                        <button type = "submit"><ion-icon name="search-outline"></ion-icon></button>
+                    </form>
+                </div>
+                <div class = "items">
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                    <button><b>ISRO : </b>There has been a lot of increase in rocket science technology</button>
+                </div>
+            </div>
+            <div class = "right">
+                <h2>#Tags</h2>
+                <div class = "tags">
+                    <a href = "#">science</a>
+                    <a href = "#">psychology</a>
+                    <a href = "#">artificial intelligence</a>
+                    <a href = "#">police</a>
+                    <a href = "#">government</a>
+                    <a href = "#">laws</a>
+                    <a href = "#">movies</a>
+                    <a href = "#">cricket</a>
+                    <a href = "#">food</a>
+                    <a href = "#">world</a>
+                    <a href = "#">mathematics</a>
+                    <a href = "#">schools</a>
+                    <a href = "#">education</a>
+                    <a href = "#">wildlife</a>
+                    <a href = "#">business</a>
+                    <a href = "#">women empowerment</a>
+                    <a href = "#">children</a>
+                    <a href = "#">exercise</a>
+                    <a href = "#">space</a>
+                    <a href = "#">physics</a>
+                    <a href = "#">songs</a>
+                    <a href = "#">dance</a>
+                    <a href = "#">health</a>
+                    <a href = "#">agriculture</a>
+                    <a href = "#">computer science</a>
+                    <a href = "#">electricity</a>
+                    <a href = "#">transport</a>
+                    <a href = "#">exams</a>
+                    <a href = "#">games</a>
+                    <a href = "#">others</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class = "ad">
+            <div class = "ad-a">
+                <h3>Best platform to gain knowledge</h3>
+                <div class = "boxes">
+                    <div class = "box">
+                        <div class = "image">
+                            <img src = "/home/hemanth-kumar-yasarapu/Documents/idea/img1.jpg"/>
+                            <div class = "text">
+                                <p>What you will gain by sharing your idea with all the people?The answer is you may some times don't know how to implement the idea but may be some other people know that.Hence there will be a great development in the world.</p>
+                                <a href = "#">know more</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class = "box">
+                        <div class = "image">
+                            <img src = "/home/hemanth-kumar-yasarapu/Documents/idea/img2.jpg"/>
+                            <div class = "text">
+                                <p>World is at your fingertips.Everything you need is just an internet connection.You can share anything you want,you can access anything you want.Let's step into that level of Technology.Help others by sharing your ideas.Help the world in the developing process.</p>
+                                <a href = "#">know more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "box">
+                        <div class = "image">
+                            <img src = "/home/hemanth-kumar-yasarapu/Documents/idea/img3.jpg"/>
+                            <div class = "text">
+                                <p>You can share your ideas any time you want.Having worried about your busy schedule daily, you may not get enough time to think. Atleast spend 10 minutes for a peaceful life. Meditation is also a Best practice.</p>
+                                <a href = "#">know more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "box">
+                        <div class = "image">
+                            <img src = "/home/hemanth-kumar-yasarapu/Documents/idea/img4.jpg"/>
+                            <div class = "text">
+                                <p>Don't get confusion about your privacy. We ensure a powerful security for you data while logging or signup. We are very kind to the users about their data and their activity. Shareidea is just a platform. The world's super development is soon.</p>
+                                <a href = "#">know more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class = "logsign">
+            <div class = "login" id = "log">
+                <form>
+                    <h2>LOGIN</h2>
+                    <input type = "text" placeholder = "USERNAME"/>
+                    <input type = "password" placeholder = "PASSWORD"/>
+                    <input type = "submit" value = "LOGIN">
+                    <p>Don't have an account? <a href = "#sign">sign up</a> here</p>
+                </form>
+            </div>
+            <div class = "signup" id = "sign">
+                <form>
+                    <h2>SIGN UP</h2>
+                    <input type = "mail" placeholder = "MAIL"/>
+                    <input type = "text" placeholder = "USERNAME"/>
+                    <input type = "password" placeholder = "PASSWORD"/>
+                    <input type = "submit" value = "SIGN UP">
+                    <p>Already have an account? <a href = "#log">login</a> here</p>
+                </form>
+            </div>
+        </div>
+        
+        <div class = "follow">
+            <div class = "address">
+                <h2>CONTACT US</h2>
+                <p>DR NO. 11-3,GANDHI APARTMENTS,MAIN STREET,BANJARA HILLS,HYDERABAD,TELANGANA,INDIA,678432.</p>
+                <h3>Mail</h3>
+                <p>shareideafortheworld@gmail.com</p>
+                <h3>Telephone</h3>
+                <p>+91-113-5678-908</p>
+            </div>
+            <div class = "follow-links">
+                <h3>FOLLOW US:</h3>
+                <div class = "l">
+                    <a href = ""><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href = ""><ion-icon name="logo-twitter"></ion-icon></a>
+                    <a href = ""><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href = ""><ion-icon name="logo-youtube"></ion-icon></a>
+                </div>
+            </div>
+            <div class = "follow-img">
+                <img src = "/home/hemanth-kumar-yasarapu/Documents/idea/brain.jpg" width = "400"/>
+            </div>
+        </div>
+        
+        <div class = "copy">
+            <p><b>All rights reserved &copy; 2023</b></p>
+            <h2><i><b id = "high">S</b>hareidea.com</i></h2>
+            <div class = "copy-links">
+                <button onclick = "openTerms()">Terms & conditions</button>
+                <button onclick = "openTerms()">Privacy policy</button>
+            </div>
+        </div>
+        
+        <div class = "terms" id = "terms">
+            <ion-icon name="close-outline" onclick = "openTerms()"></ion-icon>
+            <div class = "terms-conditions">
+                <h2>Terms & conditions:</h2>
+                <ol>
+                    <li>Regarding the upload of your content , you should not include any violent texts or explicit content as images.</li>
+                    <li>Without the permission of the website owner, you should not do upload any conflict oriented content in the website.</li>
+                    <li>Trying to hack the website leads to the criminal case under cyber security department.</li>
+                    <li>This website is only for the sake of development of the world in the new technology field.Users are requested to help us.</li>
+                    <li>Website strictly banned the usage of illegal words and images. You may get involved in police cases if noticed!</li>
+                    <li>Users can login to their account from any device at a time.</li>
+                    <li>Tags are newly added feature to immediately reach to your specific interest rather than search.</li>
+                    <li>Shareidea going to launch a mobile application soon to provide more facilities.Hope you support us.</li>
+                </ol>
+            </div>
+            <div class = "terms-conditions">
+                <h2>Privacy policy:</h2>
+                <ol>
+                    <li>Your data is our responsibility.You don't fear of any hacking problems as the website is designed based on new technologies.</li>
+                    <li>It is better not to tell your passwords and e-mails to any other person except you trust them.</li>
+                    <li>Your data is end-to-end encrypted. We even can't see your data.</li>
+                    <li>Posts that you posted are to be checked,except those we don't even ask for any information.</li>
+                    <li>Shareidea is based on blockchain technology.Users are requested not to worry about their privacy.</li>
+                    <li>Thank you for your support for us.</li>
+                    <li>Shareidea do not ask for any money or payment for the usage.</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!--javascript-->
+        <script>
+            function openTerms(){
+                var item = document.getElementById("terms");
+                if(item.style.display == "block"){
+                    item.style.display = "none";
+                }else{
+                    item.style.display = "block";
+                }
+            }
+        </script>
+        
+    </body>
+</html>
